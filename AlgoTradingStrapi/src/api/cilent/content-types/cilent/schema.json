@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cilents",
+  "info": {
+    "singularName": "cilent",
+    "pluralName": "cilents",
+    "displayName": "cilent",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "Broker": {
+      "type": "string"
+    },
+    "appid": {
+      "type": "string"
+    },
+    "cilentcode": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "permission": {
+      "type": "boolean"
+    },
+    "secretkey": {
+      "type": "string"
+    },
+    "status": {
+      "type": "boolean"
+    },
+    "token": {
+      "type": "text"
+    },
+    "totp": {
+      "type": "string"
+    },
+    "loginpin": {
+      "type": "integer"
+    },
+    "role": {
+      "type": "enumeration",
+      "enum": [
+        "admin",
+        "client"
+      ]
+    },
+    "email": {
+      "type": "string"
+    }
+  }
+}

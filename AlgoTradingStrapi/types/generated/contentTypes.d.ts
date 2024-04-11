@@ -362,6 +362,50 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiCilentCilent extends Schema.CollectionType {
+  collectionName: 'cilents';
+  info: {
+    singularName: 'cilent';
+    pluralName: 'cilents';
+    displayName: 'cilent';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    firstname: Attribute.String;
+    lastname: Attribute.String;
+    Broker: Attribute.String;
+    appid: Attribute.String;
+    cilentcode: Attribute.String;
+    phone: Attribute.String;
+    permission: Attribute.Boolean;
+    secretkey: Attribute.String;
+    status: Attribute.Boolean;
+    token: Attribute.Text;
+    totp: Attribute.String;
+    loginpin: Attribute.Integer;
+    role: Attribute.Enumeration<['admin', 'client']>;
+    email: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cilent.cilent',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cilent.cilent',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -695,7 +739,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -798,6 +841,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::cilent.cilent': ApiCilentCilent;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
